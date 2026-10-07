@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>DUY LỢI DISRILE APP</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- BACKGROUND NARUTO + BONG BÓNG CAM -->
+<div class="bg-container">
+  <div class="bg-naruto"></div>
+  <div class="bg-overlay"></div>
+  <div class="bubbles" id="bubbles"></div>
+</div>
+
+<!-- LOADING -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-logo">
+    <div class="loading-icon">🔥</div>
+    <div class="loading-title">DUY LỢI DISRILE</div>
+    <div class="loading-sub">PREMIUM APP 2026</div>
+  </div>
+  <div class="loading-bar"><div class="loading-bar-fill" id="loadingBar"></div></div>
+  <div class="loading-text" id="loadingText">ĐANG TẢI CẤU HÌNH...</div>
+</div>
+
+<!-- WELCOME POPUP -->
+<div class="welcome-overlay" id="welcomeOverlay">
+  <div class="welcome-box">
+    <div class="welcome-icon">🔥</div>
+    <div class="welcome-title">CHÀO MỪNG BẠN ĐẾN</div>
+    <div class="welcome-app">DUY LỢI DISRILE APP</div>
+    <div class="welcome-sub">PREMIUM · VIP 2026</div>
+    <button class="welcome-btn" id="btn-welcome-ok">⚔️ BẮT ĐẦU</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="phone-container" id="appContainer" style="display:none;">
+  <div class="status-bar">
+    <span class="time-clock" id="clock">11:31</span>
+    <span class="battery-status">⚡ <span id="batteryLevel">100</span>%</span>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="view active" id="view-login">
+    <div class="skull-icon">🔥</div>
+    <div class="header-title">DUY LỢI DISRILE</div>
+    <div class="sub-author">PREMIUM APP 2026</div>
+    <div class="target-icon">
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="inner-dot"></div>
+    </div>
+    <div class="banner-text">
+      🔥 <span>HỆ THỐNG KÉO TÂM PREMIUM</span><br>
+      <span class="highlight-text">DUY LỢI DISRILE APP</span>
+    </div>
+    <div class="input-group">
+      <input type="text" class="key-input" id="input-key" placeholder="Nhập key...">
+      <button class="btn-login" id="btn-submit-login">⚔️ ĐĂNG NHẬP ⚔️</button>
+    </div>
+    <div class="contact-footer">
+      <div class="contact-title">☠ LIÊN HỆ ☠</div>
+      <div class="social-icons">
+        <a href="https://www.tiktok.com/@duyloic" target="_blank" class="icon-link tt-icon">📱 TikTok</a>
+        <a href="https://www.facebook.com/profile.php?id=61567257704349" target="_blank" class="icon-link fb-icon">📘 Facebook</a>
+      </div>
+      <div class="footer-sign">by DUY LỢI</div>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <div class="view" id="view-menu">
+    <div class="menu-header">
+      <div class="skull-mini">🔥</div>
+      <div>
+        <div class="header-title small-title">DUY LỢI DISRILE</div>
+        <div class="sub-author">PREMIUM APP</div>
+      </div>
+      <button class="btn-logout" id="btn-logout">⏻</button>
+    </div>
+
+    <div class="user-info-bar">
+      <div class="user-key">🔑 <span id="user-key-display">--</span></div>
+      <div class="user-expire" id="user-expire">Hạn: --</div>
+    </div>
+
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="main">⚔️ MAIN</button>
+      <button class="tab-btn" data-tab="ai">🧠 AI SENSI</button>
+      <button class="tab-btn" data-tab="profile">👤 HỒ SƠ</button>
+    </div>
+
+    <div class="tab-content active" id="tab-main">
+      <div class="menu-list" id="menu-list-main"></div>
+    </div>
+
+    <div class="tab-content" id="tab-ai">
+  <div class="ai-box">
+    <div class="ai-title">🧠 AI PHÂN TÍCH PREMIUM</div>
+    <div class="ai-desc">Nhập tên máy để AI phân tích 6 dòng độ nhạy FF</div>
+    <input type="text" id="device-model" class="ai-input" placeholder="VD: iPhone 13 Pro...">
+    <button class="btn-ai" id="btn-analyze">🔍 PHÂN TÍCH NGAY</button>
+  </div>
+  <div class="result-panel" id="result-panel">
+    <div class="result-title" id="result-device">🔹 CHƯA PHÂN TÍCH</div>
+    <div class="sensi-row"><span class="label">1. Nhìn xung quanh:</span><span class="value" id="val-general">--</span></div>
+    <div class="sensi-row"><span class="label">2. Red Dot:</span><span class="value" id="val-reddot">--</span></div>
+    <div class="sensi-row"><span class="label">3. Ống ngắm 2x:</span><span class="value" id="val-scope2x">--</span></div>
+    <div class="sensi-row"><span class="label">4. Ống ngắm 4x:</span><span class="value" id="val-scope4x">--</span></div>
+    <div class="sensi-row"><span class="label">5. Ống ngắm AWM:</span><span class="value" id="val-snip">--</span></div>
+    <div class="sensi-row"><span class="label">6. Ống ngắm 6x:</span><span class="value" id="val-scope6x">--</span></div>
+    <div class="sensi-row nút-bắn"><span class="label">🔫 Nút bắn:</span><span class="value" id="val-button">--</span></div>
+    <div class="ai-reason" id="reason-text">Nhập tên máy và bấm PHÂN TÍCH</div>
+  </div>
+</div>
+
+    <div class="tab-content" id="tab-profile">
+      <div class="admin-profile-card">
+        <div class="admin-avatar">
+          <div class="admin-avatar-inner">🔥</div>
+        </div>
+        <div class="admin-name">Duy Lợi</div>
+        <div class="admin-role">Developer / Admin</div>
+
+        <div class="social-grid">
+          <a href="https://t.me/DISRILECONFIGLIVE" target="_blank" class="social-btn">
+            <span class="social-icon">📨</span>
+            <span>DISRILE CONFIG LIVE</span>
+          </a>
+          <a href="https://zalo.me/0936491315" target="_blank" class="social-btn">
+            <span class="social-icon">💬</span>
+            <span>Zalo: 0936491315</span>
+          </a>
+          <a href="https://www.tiktok.com/@duyloic" target="_blank" class="social-btn">
+            <span class="social-icon">📱</span>
+            <span>TikTok</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61567257704349" target="_blank" class="social-btn">
+            <span class="social-icon">📘</span>
+            <span>Facebook</span>
+          </a>
+        </div>
+
+        <div class="app-info-title">THÔNG TIN ỨNG DỤNG</div>
+
+        <div class="info-row"><span>Tên ứng dụng</span><span class="info-value">DUY LỢI DISRILE APP</span></div>
+        <div class="info-row"><span>Giao diện</span><span class="info-value red">Kurama Gold Fire</span></div>
+        <div class="info-row"><span>Điều hướng</span><span class="info-value">3 Tab</span></div>
+        <div class="info-row"><span>Game hỗ trợ</span><span class="info-value orange">Free Fire / FF MAX</span></div>
+        <div class="info-row"><span>Booster</span><span class="info-value">100% Premium</span></div>
+        <div class="info-row"><span>Quản trị</span><span class="info-value red">Duy Lợi</span></div>
+      </div>
+    </div>
+
+    <div class="master-controls" id="master-controls">
+      <button class="btn-master on-state" id="master-on">⚔️ ON ALL</button>
+      <button class="btn-master off-state" id="master-off">☠ OFF ALL</button>
+    </div>
+  </div>
+
+  <!-- CENTER POPUP -->
+  <div class="center-popup" id="centerPopup">
+    <div class="center-popup-box">
+      <div class="center-popup-icon" id="center-icon">⚡</div>
+      < classdiv class="center-popup-text" id="center-text">Đã bật chức năng</div>
+    </div>
+  </div>
+
+  <!-- OVERLAY GAME -->
+  <div class="overlay" id="overlay-game">
+    <div class="popup-box">
+      <div class="popup-title">💀 CHỌN PHIÊN BẢN GAME</div>
+      <div class="game-options">
+        <div class="game-card active-card" data-game="freefire://" data-pkg="com.dts.freefireth">
+          <span class="game-emoji">🔥</span><span>Free Fire</span>
+        </div>
+        <div class="game-card" data-game="freefiremax://" data-pkg="com.dts.freefiremax">
+          <span="game-emoji">⚡</span><span>Free Fire Max</span>
+        </div>
+      </div>
+      <button class="btn-action btn-close" id="btn-headlock-success">🚀 VÀO GAME</button>
+      <button class="btn-action btn-danger" id="btn-headlock-turnoff">✕ ĐÓNG</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay-terminal">
+    <div class="popup-box">
+      <div class="popup-title" id="terminal-title">🩸 ĐANG TỐI ƯU...</div>
+      <div class="terminal-box" id="terminal-content"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
